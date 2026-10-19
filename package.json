@@ -1,0 +1,37 @@
+{
+  "name": "claude-idle-widget",
+  "version": "1.0.0",
+  "description": "Pixel-art Claude desktop widget that reacts to your keyboard typing",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "44.5.1",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.arthurh.claudeidlewidget",
+    "productName": "ClaudeIdleWidget",
+    "npmRebuild": false,
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "renderer.js",
+      "assets/**"
+    ],
+    "win": {
+      "target": "portable",
+      "icon": "assets/icon.ico",
+      "signAndEditExecutable": true
+    }
+  },
+  "allowScripts": {
+    "electron@44.5.1": true
+  },
+  "dependencies": {
+    "uiohook-napi": "^1.5.5"
+  }
+}

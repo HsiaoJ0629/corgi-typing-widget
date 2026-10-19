@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'">
+
+<title>Claude Idle</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    overflow: hidden;
+    -webkit-user-select: none;
+    user-select: none;
+    font-family: 'Segoe UI', Arial, sans-serif;
+  }
+
+  .drag-region {
+    -webkit-app-region: drag;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0; left: 0;
+    z-index: 0;
+  }
+
+  .case {
+    position: relative;
+    z-index: 1;
+    width: 300px;
+    margin: 10px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    -webkit-app-region: drag;
+  }
+
+  canvas {
+    display: block;
+    filter: drop-shadow(0 6px 14px rgba(0,0,0,0.4));
+  }
+
+  .hit-status {
+    position: absolute;
+    -webkit-app-region: no-drag;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+  <div class="drag-region"></div>
+  <div class="case">
+    <canvas id="sprite" width="300" height="222"></canvas>
+    <div class="hit-status" id="statusHit" title="Click to change status"></div>
+  </div>
+  <script src="renderer.js"></script>
+</body>
+</html>
